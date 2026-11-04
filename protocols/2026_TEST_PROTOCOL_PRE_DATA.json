@@ -1,0 +1,34 @@
+{
+  "protocol_id": "FROZEN_TEMPORAL_TEST_2026_V1",
+  "written_before_2026_data_download": true,
+  "source": "NOAA Coral Reef Watch CoralTemp daily 5-km SST, ERDDAP dataset noaacrwsstDaily",
+  "spatial_pixels": "same frozen 163 NOAA grid pixels in identical order",
+  "period": "target start >=2026-01-01; include every forecast origin whose full 30-day target is available at acquisition cutoff",
+  "history": "use 2025 frozen history plus acquired 2026 SST; input ends at forecast origin",
+  "preprocessing": "reuse 2000-2017 climatology365, SSTA scale, and pixel DAP rho without recalibration",
+  "primary_comparison": "M11 DAP+DualContext versus M01 DAP+iT365",
+  "secondary_models": [
+    "Climatology",
+    "Persistence",
+    "DAP",
+    "DLinear",
+    "PatchTST",
+    "iTransformer",
+    "M10 DualContext"
+  ],
+  "primary_metrics": [
+    "overall RMSE",
+    "overall MAE"
+  ],
+  "secondary_metrics": [
+    "D1-7 RMSE",
+    "D8-14 RMSE",
+    "D15-30 RMSE",
+    "lead-wise RMSE",
+    "high-SSTA RMSE",
+    "MHW-like RMSE"
+  ],
+  "statistical_test": "paired 60-day moving-block bootstrap across forecast origins; 10000 replicates; seeds fixed",
+  "missing_data": "abort evaluation if any required selected-pixel SST is nonfinite; do not impute based on test outcomes",
+  "decision": "report result regardless of direction; no model changes or selection based on 2026"
+}

@@ -1,0 +1,45 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+.venv/
+venv/
+build/
+dist/
+outputs/
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Never commit credentials or local data-download caches.
+.env
+*.key
+*.pem
+data/raw/
+data/cache/
+
+# Restricted Hainan artifacts are distributed on request; keep them out of this public repository
+# even when a licensed copy is placed in the working tree.
+data/processed/hainan_*
+data/inventories/hainan_*
+checkpoints/hainan_*/
+reference_results/hainan_*/
+
+# Large intermediate predictions are regenerated from checkpoints.
+*.npy
+!tests/fixtures/*.npy
+
+# Keep manuscript figures and rendered article documents out of this release.
+assets/
+figures/
+manuscript/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.pdf

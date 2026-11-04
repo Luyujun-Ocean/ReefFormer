@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reefformer"
+version = "1.1.0"
+description = "Lead-dependent context and persistence fusion for 1-30-day satellite SST forecasts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Yujun Lu"},
+  {name = "Changen Yang"},
+  {name = "Xi Liang"},
+  {name = "Zhi Zhou"},
+]
+dependencies = [
+  "numpy>=1.26,<3",
+  "pandas>=2.0,<3",
+  "torch>=2.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/Luyujun-Ocean/ReefFormer"
+Repository = "https://github.com/Luyujun-Ocean/ReefFormer"
+Issues = "https://github.com/Luyujun-Ocean/ReefFormer/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

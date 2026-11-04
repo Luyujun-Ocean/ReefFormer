@@ -1,0 +1,20 @@
+* text=auto eol=lf
+*.npz binary
+*.pt binary
+*.pdf binary
+*.png binary
+*.csv text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.cff text eol=lf
+*.txt text eol=lf
+LICENSE text eol=lf
+MANIFEST.sha256 text eol=lf
+# Released data and reference tables are kept byte-for-byte so that the SHA-256 values in
+# MANIFEST.sha256 and in the dataset protocol files match every checkout.
+data/** -text
+reference_results/** -text
+protocols/** -text
