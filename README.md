@@ -27,6 +27,7 @@ This repository provides:
 | Great Barrier Reef data and pixel inventory | [`data/`](data/) | Included |
 | Six Great Barrier Reef branch checkpoints | [`checkpoints/gbr_coraltemp/`](checkpoints/gbr_coraltemp/) | Included |
 | Great Barrier Reef reference results | [`reference_results/gbr_coraltemp/`](reference_results/gbr_coraltemp/) | Included |
+| Great Barrier Reef warm-season evaluation | [`scripts/warm_season_gbr.py`](scripts/warm_season_gbr.py), [`reference_results/gbr_coraltemp/warm_season/`](reference_results/gbr_coraltemp/warm_season/) | Included |
 | Hainan CoralTemp and OSTIA data and checkpoints | See [`docs/DATA.md`](docs/DATA.md) | On request |
 
 The included checkpoints cover the 90- and 365-day branches for seeds 42, 43,
@@ -84,6 +85,19 @@ validation forecasts, and compares the generated summary metrics with the
 included reference tables. The numerical tolerance is `1e-4` degrees Celsius.
 See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) for the exact scope.
 
+### Reproduce the Great Barrier Reef warm-season evaluation
+
+```bash
+python scripts/warm_season_gbr.py --device auto
+```
+
+The command scores the five out-of-sample GBR warm seasons (1 December to
+15 April, 2021/22 to 2025/26) and reproduces the GBR rows of Tables S32 and
+S33 of the manuscript. ReefFormer, iTransformer, and anomaly persistence are
+regenerated from the included checkpoints and data; DLinear, PatchTST, and
+the LSTM enter through archived per-origin statistics. See
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+
 ### Use the fusion API
 
 ```python
@@ -130,7 +144,9 @@ terms.
   fusion results from the included artifacts.
 - Reproducing the Hainan results requires the files distributed on request.
 - External-baseline implementations, all baseline checkpoints, and every
-  exploratory experiment are not included in this package.
+  exploratory experiment are not included in this package. For the GBR
+  warm-season evaluation, the external baselines are represented by archived
+  per-origin statistics rather than by their forecasts.
 - Retraining can produce small numerical differences across software and
   hardware environments. The archived checkpoints are the reference for
   checkpoint-based reproduction.
