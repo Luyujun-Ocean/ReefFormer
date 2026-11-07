@@ -163,7 +163,7 @@ For the associated manuscript:
 
 ```bibtex
 @unpublished{lu2026reefformer,
-  author = {Lu, Yujun and Yang, Changen and Liang, Xi and Huang, Wenguo and Zhou, Zhi},
+  author = {Lu, Yujun and Yang, Changen and Liang, Xi and Huang, Wenguo and Ding, Juncheng and Lu, Yushuai and Zhou, Zhi},
   title = {ReefFormer: Lead-Dependent Fusion of Transformer and Persistence Forecasts for 1--30-Day Sea Surface Temperature Prediction in Coral Reef Coastal Waters},
   year = {2026},
   note = {Research manuscript}
